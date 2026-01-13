@@ -1,0 +1,65 @@
+:root {
+  --var-color-button: #28a745;
+  --var-color-button-hover: #14a320;
+  --var-color-fecha: #60f333;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  max-width: 300px;
+  border: 1px solid #ccc;
+
+  &__image {
+    width: 100%;
+    font-weight: bold;
+  }
+
+  &__body{
+    padding: 16px;
+    
+  }
+
+  &__date{
+    text-align: right;
+    
+    span{
+      color: var(--var-color-fecha);
+    }
+  }
+
+  &__button{
+    background-color: var(--var-color-button);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 100%;
+    
+    &:hover {
+      background-color: var(--var-color-button-hover);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

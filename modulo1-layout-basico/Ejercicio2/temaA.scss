@@ -1,0 +1,33 @@
+$color-base:      #ff0000;
+$color-important: #522a1f;
+$color-warning:   #ecccff;
+$color-shadow-box: #ffffff;
+
+$font-primary: Arial, Helvetica, sans-serif;
+$font-secondary: 'Courier New', Courier, monospace;
+
+$shadow: -10px 10px 5px rgba(0, 0, 0, 0.616);
+
+body{
+  background-color: aquamarine;
+}
+
+.square{
+  width: 70px;
+  height: 50px;
+  padding: 10px;
+}
+
+.base { background-color: $color-base; }
+.important { background-color: $color-important; }
+.warning { background-color: $color-warning; }
+
+.principal_font{ font-family: $font-primary }
+.secondary_font{ font-family: $font-secondary; }
+
+.shadow_box {
+  width: 70px;
+  background-color: $color-shadow-box;
+  padding: 10px;
+  box-shadow: $shadow;
+}

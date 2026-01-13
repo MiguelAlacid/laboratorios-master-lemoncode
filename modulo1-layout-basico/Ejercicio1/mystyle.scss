@@ -1,0 +1,66 @@
+@use "sass:color";
+
+$temas: (
+  1: #f44336,
+  2: #3f51b5,
+  3: #4caf50
+);
+
+// Configuración
+$repeticiones: 4;
+$degradado: 12%;
+
+
+.box {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.box.base-color{
+  width: 150px;
+}
+
+.box.base-color:hover {
+  transform: scale(1.1);
+}
+
+.color-box-text {
+  color: white;
+}
+
+.container-flex{
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+  @each $id, $base-color in $temas {
+    &-#{$id} {
+      display:flex;
+      .base-color {
+        background-color: $base-color;
+      }
+      
+      @for $i from 1 through $repeticiones {
+        .darken-#{$i} {
+          background-color: color.scale(
+            $base-color,
+            $lightness: -$i * $degradado
+          );
+        }
+
+        .lighten-#{$i} {
+          background-color: color.scale(
+            $base-color,
+            $lightness: $i * $degradado
+          );
+        }
+      }
+    }
+  }
+}

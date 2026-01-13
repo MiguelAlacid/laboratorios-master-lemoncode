@@ -1,0 +1,1 @@
+Para cambiar entre temas, hay que ir al index.html y descomentar y comentar las lineas del head que hacen referencia a los diferentes temas

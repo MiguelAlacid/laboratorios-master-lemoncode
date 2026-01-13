@@ -1,0 +1,36 @@
+$color-base:      #0033be;
+$color-important: #0a0550;
+$color-warning:   #69eaf3;
+$color-shadow-box: #ffffff;
+
+$font-primary: "Times New Roman", Times, serif;
+$font-secondary: cursive;
+
+// La sombra es x (valor negativo hacia la izquierda)| y (valor negativo hacia arriba) | difuminado | color.
+$shadow: 10px 10px 5px rgba(0, 0, 0, 0.616);
+
+body{
+  background-color: rgb(206, 176, 245);
+}
+
+.square{
+  width: 70px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.base { background-color: $color-base; }
+.important { background-color: $color-important; }
+.warning { background-color: $color-warning; }
+
+.principal_font{ font-family: $font-primary }
+.secondary_font{ font-family: $font-secondary; }
+
+.shadow_box {
+  width: 70px;
+  background-color: $color-shadow-box;
+  padding: 10px;
+  box-shadow: $shadow;
+  border-radius: 5px;
+}
