@@ -1,1 +1,1 @@
-
+En el ejercicio 3, en la función merge, no entiendo como podría usar la función clone del primer apartado.
