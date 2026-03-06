@@ -17,7 +17,7 @@ const books: Book[] = [
 
 function isBookRead(books: Book[], titleToSearch: string): boolean {
   
-    const book = books.find(book => book.title.toUpperCase().includes(titleToSearch.toLocaleUpperCase()))
+    const book = books.find(book => book.title.toUpperCase().includes(titleToSearch.toUpperCase()))
 
     return book ? book.isRead : false;
 }
