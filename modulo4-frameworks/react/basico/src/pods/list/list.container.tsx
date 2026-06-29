@@ -13,6 +13,7 @@ interface Props {
 export const ListContainer: React.FC<Props> = ({ onSelectMember }) => {
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
   const { company, setCompany } = React.useContext(CompanyContext);
+  const [loading, setLoading] = React.useState(false)
 
   const navigate = useNavigate();
 
@@ -26,7 +27,13 @@ export const ListContainer: React.FC<Props> = ({ onSelectMember }) => {
   };
 
   const loadMembers = () => {
-    getMembers(company).then(setMembers);
+    setLoading(true);
+    try {
+      // Se hace esto del prev por si de la llamada de la api viene error o no hay miembros en la compañía, reenderizando asi lo último que había.
+      getMembers(company).then((result) => setMembers((prev) => (result.length ? result: prev)));
+    } finally{
+      setLoading(false)
+    }
 
     // Esta linea es equivalente a la anterior, pero con una sintaxis más explícita:
     // getMembers(company).then((members) => setMembers(members));
@@ -39,6 +46,7 @@ export const ListContainer: React.FC<Props> = ({ onSelectMember }) => {
       onCompanyChange={setCompany}
       onSearch={loadMembers}
       onSelect={handleSelect}
+      loading={loading}
     />
   );
 };

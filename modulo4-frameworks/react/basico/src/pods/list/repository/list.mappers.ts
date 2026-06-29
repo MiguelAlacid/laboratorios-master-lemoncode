@@ -10,5 +10,6 @@ export const mapMemberEntityToVM = (
 });
 
 export const mapMembersEntityToVM = (
-  members: am.MemberEntity[],
-): vm.MemberEntity[] => members.map(mapMemberEntityToVM);
+  members: am.MemberEntity[] ,
+): vm.MemberEntity[] => members.length !== 0 ? members.map(mapMemberEntityToVM): [];
+ 

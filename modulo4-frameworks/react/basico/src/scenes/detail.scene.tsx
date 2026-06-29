@@ -9,7 +9,7 @@ export const DetailScene: React.FC = () => {
   const { id } = useParams();
 
   return (
-    <AppLayout TituloComponent={<UserName name="Lemoncode" />}>
+    <AppLayout TituloComponent={<UserName name="Details" />}>
       <DetailContainer login={id ?? ""} />
     </AppLayout>
   );
