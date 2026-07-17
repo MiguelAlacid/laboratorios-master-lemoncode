@@ -50,8 +50,9 @@ export const List: React.FC<Props> = ({
                 field: 'avatarUrl',
                 headerName: 'Avatar',
                 width: 70,
-                sortable: false,
-                renderCell: (params) => <img src={params.value} alt="" width={32} height={32} />,
+                align: 'center',
+                display: 'flex',
+                renderCell: (params) => <img src={params.value} alt="" width={36} height={36} style={{ borderRadius: '50%'}} />,
               },
               { field: 'id', headerName: 'Id', width: 130 },
               { 
@@ -71,15 +72,6 @@ export const List: React.FC<Props> = ({
             sx={{ border: 0 }}
           />
         </Paper>
-
-        {/* {members.length > 0 &&
-          members.map((member) => (
-            <MemberRow
-              key={member.id}
-              member={member}
-              onSelect={() => onSelect(member.login)}
-            />
-          ))} */}
       </div>
     </>
   );

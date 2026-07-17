@@ -11,8 +11,10 @@ export const AppLayout: React.FC<PropsWithChildren<Props>> = ({
 }) => {
   return (
     <div className="layout-app-container">
-      <div className="layout-app-header">{TituloComponent}</div>
-
+      <div className="layout-app-header">
+        <a href="#"  className="links">Miembros GitHub</a>
+        <a href="/rickMorty" className="links">Rick & Morty API</a>
+      </div>
       <main>{children}</main>
     </div>
   );
