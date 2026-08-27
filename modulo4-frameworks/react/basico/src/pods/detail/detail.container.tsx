@@ -12,7 +12,6 @@ interface Props {
 export const DetailContainer: React.FC<Props> = ({ login }) => {
   const [member, setMember] = React.useState<MemberDetailEntity>();
 
-  console.log("login:", login);
   React.useEffect(() => {
     getMemberDetail(login).then(mapMemberDetailEntityToVM).then(setMember);
   }, [login]);

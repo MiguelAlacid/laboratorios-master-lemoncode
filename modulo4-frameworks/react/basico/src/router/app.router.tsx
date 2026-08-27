@@ -1,4 +1,10 @@
-import { LoginScene, ListScene, DetailScene, RickMortyScene } from "@/scenes";
+import {
+  LoginScene,
+  ListScene,
+  DetailScene,
+  RickMortyScene,
+  RickMortyDetailScene,
+} from "@/scenes";
 import React from "react";
 import {
   Navigate,
@@ -15,6 +21,7 @@ export const AppRouter: React.FC = () => {
         <Route path="/list" element={<ListScene />} />
         <Route path="/detail/:id" element={<DetailScene />} />
         <Route path="/rickMorty" element={<RickMortyScene />} />
+        <Route path="/rickMorty/:id" element={<RickMortyDetailScene />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
