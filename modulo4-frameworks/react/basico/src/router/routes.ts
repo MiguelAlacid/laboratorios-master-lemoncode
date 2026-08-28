@@ -25,6 +25,5 @@ interface Routes extends Omit<SwitchRoutes, "detail" | "rickMortyDetail"> {
 export const routes: Routes = {
   ...switchRoutes,
   detail: (id: string) => generatePath(switchRoutes.detail, { id }),
-  rickMortyDetail: (id: string) =>
-    generatePath(switchRoutes.rickMortyDetail, { id }),
+  rickMortyDetail: (id: string) => generatePath(switchRoutes.rickMortyDetail, { id }),
 };
