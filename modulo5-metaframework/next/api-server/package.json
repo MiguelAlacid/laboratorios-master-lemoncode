@@ -1,0 +1,19 @@
+{
+  "name": "house-api",
+  "version": "1.0.0",
+  "description": "House API",
+  "type": "module",
+  "scripts": {
+    "start": "tsx watch src/index.ts",
+    "mock-server": "tsx watch src/index.ts"
+  },
+  "author": "Lemoncode",
+  "license": "MIT",
+  "dependencies": {
+    "@hono/node-server": "2.0.5",
+    "hono": "4.12.26"
+  },
+  "devDependencies": {
+    "tsx": "4.22.4"
+  }
+}

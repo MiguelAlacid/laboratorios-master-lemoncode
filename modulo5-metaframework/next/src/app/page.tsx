@@ -1,16 +1,21 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
-import classes from './index.module.css';
+import { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { routeConstants } from '#core/constants';
+import classes from './page.module.css';
 
-export const Route = createFileRoute('/')({
-  component: RouteComponent,
-});
+export const metadata: Metadata = {
+  title: 'Alquiler de casas - Inicio',
+};
 
-function RouteComponent() {
+// SSG: página sin datos ni APIs dinámicas -> Next la prerenderiza en build
+// y la sirve como HTML estático desde el CDN.
+const RootPage = () => {
   return (
     <div className={classes.root}>
-      <img
+      <Image
         className={classes.logo}
-        src="/images/casa.png"
+        src="/casa.png"
         alt="logo"
         width={80}
         height={57}
@@ -20,7 +25,7 @@ function RouteComponent() {
         Encuentra la casa perfecta para tu próxima escapada. Explora nuestro
         catálogo de alojamientos y reserva en pocos clics.
       </p>
-      <Link to="/houses" className={classes.cta}>
+      <Link href={routeConstants.houseList} className={classes.cta}>
         Entrar al portal
         <span className={`material-icon ${classes.ctaIcon}`}>
           arrow_forward
@@ -28,4 +33,6 @@ function RouteComponent() {
       </Link>
     </div>
   );
-}
+};
+
+export default RootPage;
