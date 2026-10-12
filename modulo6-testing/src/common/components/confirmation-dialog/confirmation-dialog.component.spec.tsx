@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { ConfirmationDialogComponent } from './confirmation-dialog.component';
 
 describe('common/confirmation-dialog/ConfirmationDialogComponent', () => {
@@ -27,7 +28,9 @@ describe('common/confirmation-dialog/ConfirmationDialogComponent', () => {
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText('Test title')).toBeInTheDocument();
     expect(screen.getByText('Test content')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Cancelar' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Cancelar' })
+    ).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Aceptar' })).toBeInTheDocument();
   });
 
@@ -74,7 +77,7 @@ describe('common/confirmation-dialog/ConfirmationDialogComponent', () => {
     expect(screen.getByTestId('custom-title')).toBeInTheDocument();
   });
 
-  it('should call only onClose when clicking the close button', () => {
+  it('should call only onClose when clicking the close button', async () => {
     // Arrange
     const props = {
       isOpen: true,
@@ -91,14 +94,14 @@ describe('common/confirmation-dialog/ConfirmationDialogComponent', () => {
     );
 
     // Act
-    fireEvent.click(screen.getByRole('button', { name: 'Cancelar' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Cancelar' }));
 
     // Assert
     expect(props.onClose).toHaveBeenCalledTimes(1);
     expect(props.onAccept).not.toHaveBeenCalled();
   });
 
-  it('should call onAccept and then onClose when clicking the accept button', () => {
+  it('should call onAccept and then onClose when clicking the accept button', async () => {
     // Arrange
     const calls: string[] = [];
     const props = {
@@ -116,7 +119,7 @@ describe('common/confirmation-dialog/ConfirmationDialogComponent', () => {
     );
 
     // Act
-    fireEvent.click(screen.getByRole('button', { name: 'Aceptar' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Aceptar' }));
 
     // Assert
     expect(props.onAccept).toHaveBeenCalledTimes(1);
