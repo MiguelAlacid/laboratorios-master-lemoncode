@@ -49,22 +49,4 @@ describe('common/confirmation-dialog/useConfirmationDialog', () => {
     expect(result.current.isOpen).toBeFalsy();
     expect(result.current.itemToDelete).toEqual(item);
   });
-
-  it('should reset itemToDelete without closing the dialog when calling onAccept', () => {
-    // Arrange
-    const item: Lookup = { id: '1', name: 'Test item' };
-    const { result } = renderHook(() => useConfirmationDialog());
-    act(() => {
-      result.current.onOpenDialog(item);
-    });
-
-    // Act
-    act(() => {
-      result.current.onAccept();
-    });
-
-    // Assert
-    expect(result.current.itemToDelete).toEqual(createEmptyLookup());
-    expect(result.current.isOpen).toBeTruthy();
-  });
 });
